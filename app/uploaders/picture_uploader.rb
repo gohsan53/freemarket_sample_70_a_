@@ -2,10 +2,12 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+  process resize_to_fit: [600, 600]
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development? || Rails.env.test?
-    storage :file
+    storage :fog
+    # storage :file
   else
     storage :fog
   end
@@ -16,7 +18,6 @@ class PictureUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process resize_to_fit: [600, nil]
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
