@@ -7,7 +7,7 @@ lock '3.14.0'
 set :application, 'freemarket_sample_70_a_'
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:rockettetsu1911/freemarket_sample_70_a_.git'
+set :repo_url,  'git@github.com:gohsan53/freemarket_sample_70_a_.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -17,7 +17,7 @@ set :rbenv_ruby, '2.5.1'
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/freemarketdeploy.pem'] 
+                  keys: ['~/.ssh/furima70a.pem'] 
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
